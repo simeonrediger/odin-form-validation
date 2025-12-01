@@ -35,7 +35,7 @@ form select {
   background-color: #000;
 }
 
-form input:focus {
+form :is(input, select):focus {
   border-color: #66f;
   outline: 1px solid #66f;
 }
