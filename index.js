@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 
-const inputs = {
+const fields = {
     email: document.getElementById('email'),
     country: document.getElementById('country'),
     postalCode: document.getElementById('postal-code'),
