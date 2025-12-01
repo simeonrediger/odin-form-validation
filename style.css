@@ -40,6 +40,10 @@ form :is(input, select):focus {
   outline: 1px solid #66f;
 }
 
+form input::placeholder {
+  color: #666;
+}
+
 form button {
   background-color: #33c;
   grid-column: 1 / 3;
