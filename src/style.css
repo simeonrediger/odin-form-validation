@@ -46,6 +46,11 @@ form button {
   padding-inline: 1rem;
 }
 
+form button:focus {
+  border-color: #fff;
+  outline: 1px solid #fff;
+}
+
 .error-message {
   display: none;
   position: absolute;
