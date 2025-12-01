@@ -22,6 +22,7 @@ form label {
 }
 
 form input,
+form select,
 form button {
   border: 1px solid #444;
   border-radius: 8px;
@@ -29,7 +30,8 @@ form button {
   color: inherit;
 }
 
-form input {
+form input,
+form select {
   background-color: #000;
 }
 
