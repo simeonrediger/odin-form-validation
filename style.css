@@ -33,6 +33,11 @@ form input {
   background-color: #000;
 }
 
+form input:focus {
+  border-color: #66f;
+  outline: 1px solid #66f;
+}
+
 form button {
   background-color: #00f;
   grid-column: 1 / 3;
