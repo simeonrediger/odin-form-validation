@@ -57,11 +57,11 @@ form button:focus {
   outline: 1px solid #fff;
 }
 
-.error-message {
+.rules {
   display: none;
   position: absolute;
 }
 
-.error-message.active {
+.rules.active {
   display: inline-block;
 }
