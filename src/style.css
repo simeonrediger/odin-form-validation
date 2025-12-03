@@ -52,6 +52,10 @@ form button {
   padding-inline: 1rem;
 }
 
+form button:hover {
+  background-color: #22c;
+}
+
 form button:focus {
   border-color: #fff;
   outline: 1px solid #fff;
