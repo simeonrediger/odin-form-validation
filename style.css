@@ -62,8 +62,12 @@ form button:focus {
 }
 
 .rules {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
   display: none;
   font-size: 0.875rem;
+  padding: 0.5rem;
   position: absolute;
 }
 
