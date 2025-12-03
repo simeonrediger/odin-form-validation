@@ -21,8 +21,7 @@ form label {
   justify-self: end;
 }
 
-form input,
-form select,
+.field,
 form button {
   border: 1px solid #444;
   border-radius: 8px;
@@ -30,17 +29,16 @@ form button {
   color: inherit;
 }
 
-form input,
-form select {
+.field {
   background-color: #000;
 }
 
-form :is(input, select):focus {
+.field:focus {
   border-color: #66f;
   outline: 1px solid #66f;
 }
 
-form input::placeholder {
+.field::placeholder {
   color: #666;
 }
 
@@ -71,7 +69,7 @@ form button:focus {
   position: absolute;
 }
 
-form .field:focus + .rules {
+.field:focus + .rules {
   display: inline-block;
 }
 
