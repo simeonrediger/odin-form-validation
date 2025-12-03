@@ -71,6 +71,6 @@ form button:focus {
   position: absolute;
 }
 
-.rules.active {
+form .field:focus + .rules {
   display: inline-block;
 }
