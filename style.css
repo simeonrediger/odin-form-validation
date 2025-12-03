@@ -63,6 +63,7 @@ form button:focus {
 
 .rules {
   display: none;
+  font-size: 0.875rem;
   position: absolute;
 }
 
