@@ -17,6 +17,10 @@ function cacheElements() {
     }
 }
 
+function getFieldValue(field) {
+    return fieldElements[field].value;
+}
+
 const form = {};
 
 export default form;
