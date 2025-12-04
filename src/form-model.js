@@ -1,0 +1,22 @@
+import fields from './form-fields.js';
+import fieldSchemas from './form-field-schemas.js';
+
+let formElement;
+let submitButton;
+const fieldElements = {};
+cacheElements();
+
+function cacheElements() {
+    formElement = document.querySelector('[data-form]');
+    submitButton = document.querySelector("[data-action='submit']");
+
+    for (const field of Object.values(fields)) {
+        const fieldId = fieldSchemas[field].id;
+        const fieldElement = formElement.querySelector(`#${fieldId}`);
+        fieldElements[field] = fieldElement;
+    }
+}
+
+const form = {};
+
+export default form;

@@ -1,3 +1,5 @@
+import form from './form-model.js';
+
 function init() {}
 
 const formController = {
