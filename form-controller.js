@@ -17,7 +17,7 @@ function validateFields() {
 }
 
 function bindEvents() {
-    formView.element.addEventListener('input', handleInput);
+    formView.container.addEventListener('input', handleInput);
 }
 
 function handleInput(event) {}
