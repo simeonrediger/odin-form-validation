@@ -21,8 +21,11 @@ function getFieldValue(field) {
     return fieldElements[field].value;
 }
 
+function renderValidity(field, validity) {}
+
 const formView = {
     getFieldValue,
+    renderValidity,
 };
 
 export default formView;
