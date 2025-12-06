@@ -8,20 +8,20 @@ const fieldRuleSchemas = {
         errorMessage: 'This field cannot be empty',
         validate: isNotEmpty,
     },
-    [rules.EMAIL]: {
+    [rules.VALID_EMAIL]: {
         description: 'Valid email address',
         errorMessage: 'Invalid email address',
         validate: isValidEmail,
     },
-    [rules.POSTAL_CODE]: {
+    [rules.VALID_POSTAL_CODE]: {
         description: 'Valid postal code',
         errorMessage: 'Invalid postal code',
         validate: isValidPostalCode,
     },
-    [rules.PASSWORD_CONFIRMATION]: {
+    [rules.PASSWORD_CONFIRMATION_MATCHES_PASSWORD]: {
         description: 'Passwords match',
         errorMessage: 'Passwords do not match',
-        validate: passwordsMatch,
+        validate: passwordConfirmationMatchesPassword,
     },
 };
 
@@ -61,7 +61,7 @@ function isValidPostalCode(value) {
     return countryPostalCodePattern.test(value);
 }
 
-function passwordsMatch(value) {
+function passwordConfirmationMatchesPassword(value) {
     const password = form.getFieldValue(fields.PASSWORD);
     return value === password;
 }
