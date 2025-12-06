@@ -4,7 +4,10 @@ import fieldSchemas from './form-field-schemas.js';
 let formElement;
 let submitButton;
 const fieldElements = {};
-cacheElements();
+
+function init() {
+    cacheElements();
+}
 
 function cacheElements() {
     formElement = document.querySelector('[data-form]');
@@ -24,6 +27,7 @@ function getFieldValue(field) {
 function renderValidity(field, validity) {}
 
 const formView = {
+    init,
     getFieldValue,
     renderValidity,
 };
