@@ -1,5 +1,4 @@
 import fields from './form-fields.js';
-import form from './form-model.js';
 import rules from './field-rules.js';
 
 const fieldRuleSchemas = {
@@ -33,8 +32,8 @@ function isValidEmail(value) {
     return /^\S+@\S+\.\S+$/.test(value);
 }
 
-function isValidPostalCode(value) {
-    const country = form.getFieldValue(fields.COUNTRY);
+function isValidPostalCode(value, context) {
+    const country = context[fields.COUNTRY];
     let countryPostalCodePattern;
 
     switch (country) {
@@ -61,8 +60,8 @@ function isValidPostalCode(value) {
     return countryPostalCodePattern.test(value);
 }
 
-function passwordConfirmationMatchesPassword(value) {
-    const password = form.getFieldValue(fields.PASSWORD);
+function passwordConfirmationMatchesPassword(value, context) {
+    const password = context[fields.PASSWORD];
     return value === password;
 }
 
