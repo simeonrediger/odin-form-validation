@@ -41,6 +41,10 @@ const formView = {
     init,
     getFieldValue,
     renderValidity,
+
+    get container() {
+        return container;
+    },
 };
 
 export default formView;
