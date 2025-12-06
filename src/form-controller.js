@@ -9,11 +9,18 @@ function init() {
     formView.init();
     initFieldContexts();
     validateFields();
+    bindEvents();
 }
 
 function validateFields() {
     Object.values(formFields).forEach(validateField);
 }
+
+function bindEvents() {
+    formView.element.addEventListener('input', handleInput);
+}
+
+function handleInput(event) {}
 
 function validateField(field) {
     const value = formView.getFieldValue(field);
