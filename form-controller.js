@@ -18,6 +18,7 @@ function validateFields() {
 
 function bindEvents() {
     view.container.addEventListener('input', handleInput);
+    view.container.addEventListener('submit', handleSubmit);
 }
 
 function handleInput(event) {
@@ -34,6 +35,10 @@ function handleInput(event) {
     }
 
     validateField(field);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
 }
 
 function validateField(field) {
