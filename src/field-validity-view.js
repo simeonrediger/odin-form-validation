@@ -53,17 +53,11 @@ export default class FieldValidityView {
     }
 
     render(validity) {
-        let firstInvalidRule;
-
         for (const [rule, isValid] of Object.entries(validity)) {
             this.#renderRuleStatus(rule, isValid);
-
-            if (!firstInvalidRule && !isValid) {
-                firstInvalidRule = rule;
-            }
         }
 
-        this.#setFieldValidity(firstInvalidRule);
+        this.#setFieldValidity(validity);
     }
 
     #renderRuleStatus(rule, isValid) {
@@ -74,12 +68,12 @@ export default class FieldValidityView {
         ruleStatus.textContent = isValid ? '✅' : '❌';
     }
 
-    #setFieldValidity(invalidRule) {
-        if (invalidRule) {
-            const { errorMessage } = fieldRuleSchemas[invalidRule];
-            this.#fieldElement.setCustomValidity(errorMessage);
-        } else {
-            this.#fieldElement.setCustomValidity('');
-        }
+    #setFieldValidity(validity) {
+        const firstInvalidRule = Object.keys(validity).find(
+            rule => !validity[rule],
+        );
+
+        const errorMessage = fieldRuleSchemas[firstInvalidRule]?.errorMessage;
+        this.#fieldElement.setCustomValidity(errorMessage ?? '');
     }
 }
