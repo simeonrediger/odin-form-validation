@@ -9,6 +9,7 @@ const fieldValidityViews = {};
 
 function init() {
     cacheElements();
+    renderPostalCodeLabel();
     initFieldValidityViews();
 }
 
@@ -41,6 +42,12 @@ function getFieldValue(field) {
     return fieldElements[field].value;
 }
 
+function renderPostalCodeLabel() {
+    const label = container.querySelector("[data-label='postal-code']");
+    const country = getFieldValue(fields.COUNTRY);
+    label.textContent = country === 'us' ? 'ZIP code' : 'Postal code';
+}
+
 function renderValidity(field, validity) {
     fieldValidityViews[field].render(validity);
 }
@@ -49,6 +56,7 @@ const formView = {
     init,
     identifyFieldElement,
     getFieldValue,
+    renderPostalCodeLabel,
     renderValidity,
 
     get container() {
