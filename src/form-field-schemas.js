@@ -5,27 +5,27 @@ const formFieldSchemas = {
     [fields.EMAIL]: {
         id: 'email',
         rules: [rules.REQUIRED, rules.VALID_EMAIL],
-        dependents: [],
+        dependsOn: [],
     },
     [fields.COUNTRY]: {
         id: 'country',
         rules: [rules.REQUIRED],
-        dependents: [fields.POSTAL_CODE],
+        dependsOn: [],
     },
     [fields.POSTAL_CODE]: {
         id: 'postal-code',
         rules: [rules.REQUIRED, rules.VALID_POSTAL_CODE],
-        dependents: [],
+        dependsOn: [fields.COUNTRY],
     },
     [fields.PASSWORD]: {
         id: 'password',
         rules: [rules.REQUIRED],
-        dependents: [fields.PASSWORD_CONFIRMATION],
+        dependsOn: [],
     },
     [fields.PASSWORD_CONFIRMATION]: {
         id: 'password-confirmation',
         rules: [rules.REQUIRED, rules.PASSWORD_CONFIRMATION_MATCHES_PASSWORD],
-        dependents: [],
+        dependsOn: [fields.PASSWORD],
     },
 };
 
