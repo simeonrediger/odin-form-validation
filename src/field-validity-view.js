@@ -32,6 +32,7 @@ export default class FieldValidityView {
 
     render(validity) {
         this.#rulesElement.innerHTML = '';
+        let firstInvalidRule;
 
         for (const [rule, isValid] of Object.entries(validity)) {
             const ruleDescription = fieldRuleSchemas[rule].description;
@@ -42,6 +43,17 @@ export default class FieldValidityView {
             ruleMessage.textContent = `${ruleStatus} ${ruleDescription}`;
 
             this.#rulesElement.append(ruleMessage);
+
+            if (!firstInvalidRule && !isValid) {
+                firstInvalidRule = rule;
+            }
+        }
+
+        if (firstInvalidRule) {
+            const { errorMessage } = fieldRuleSchemas[firstInvalidRule];
+            this.#fieldElement.setCustomValidity(errorMessage);
+        } else {
+            this.#fieldElement.setCustomValidity('');
         }
     }
 }
