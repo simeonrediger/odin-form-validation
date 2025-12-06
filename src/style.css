@@ -79,4 +79,8 @@ form button:focus {
 
 .rule {
   white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
