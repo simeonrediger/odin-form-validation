@@ -2,7 +2,7 @@ import fields from './form-fields.js';
 import fieldSchemas from './form-field-schemas.js';
 import FieldValidityView from './field-validity-view.js';
 
-let formElement;
+let container;
 let submitButton;
 const fieldElements = {};
 const fieldValidityViews = {};
@@ -13,12 +13,12 @@ function init() {
 }
 
 function cacheElements() {
-    formElement = document.querySelector('[data-form]');
+    container = document.querySelector('[data-form]');
     submitButton = document.querySelector("[data-action='submit']");
 
     for (const field of Object.values(fields)) {
         const fieldId = fieldSchemas[field].id;
-        const fieldElement = formElement.querySelector(`#${fieldId}`);
+        const fieldElement = container.querySelector(`#${fieldId}`);
         fieldElements[field] = fieldElement;
     }
 }
