@@ -37,6 +37,15 @@ function validateField(field) {
     const context = fieldContexts[field];
     const validity = validate(value, rules, context);
     formView.renderValidity(field, validity);
+    validateDependentFields(field);
+}
+
+function validateDependentFields(field) {
+    const dependentFields = Object.keys(formFieldSchemas).filter(fieldKey =>
+        formFieldSchemas[fieldKey].dependsOn.includes(field),
+    );
+
+    dependentFields.forEach(validateField);
 }
 
 function initFieldContexts() {
