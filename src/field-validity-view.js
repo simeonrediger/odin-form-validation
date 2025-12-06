@@ -12,5 +12,16 @@ export default class FieldValidityView {
                 this.#element,
             );
         }
+
+        this.#positionRulesElement();
+    }
+
+    #positionRulesElement() {
+        const formElement = document.querySelector('[data-form]');
+        const formRect = formElement.getBoundingClientRect();
+        const fieldRect = this.#element.getBoundingClientRect();
+        this.#rulesElement.style.top = fieldRect.top - formRect.top + 'px';
+        this.#rulesElement.style.left =
+            fieldRect.right - formRect.left + 8 + 'px';
     }
 }
