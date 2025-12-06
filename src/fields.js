@@ -1,4 +1,4 @@
-const formFields = Object.freeze({
+const fields = Object.freeze({
     EMAIL: 'EMAIL',
     COUNTRY: 'COUNTRY',
     POSTAL_CODE: 'POSTAL_CODE',
@@ -6,4 +6,4 @@ const formFields = Object.freeze({
     PASSWORD_CONFIRMATION: 'PASSWORD_CONFIRMATION',
 });
 
-export default formFields;
+export default fields;

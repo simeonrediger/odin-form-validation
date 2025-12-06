@@ -1,5 +1,5 @@
-import fieldRuleSchemas from './field-rule-schemas.js';
-import formFieldSchemas from './form-field-schemas.js';
+import ruleSchemas from './rule-schemas.js';
+import fieldSchemas from './field-schemas.js';
 
 export default class FieldValidityView {
     #fieldElement;
@@ -25,14 +25,14 @@ export default class FieldValidityView {
 
     #initRulesElement(field) {
         this.#rulesElement.innerHTML = '';
-        const rules = formFieldSchemas[field].rules;
+        const rules = fieldSchemas[field].rules;
 
         for (const rule of rules) {
             const ruleStatus = document.createElement('span');
             ruleStatus.dataset.ruleStatus = '';
 
             const ruleDescription = document.createElement('span');
-            ruleDescription.textContent = fieldRuleSchemas[rule].description;
+            ruleDescription.textContent = ruleSchemas[rule].description;
 
             const ruleMessage = document.createElement('p');
             ruleMessage.dataset.rule = rule;
@@ -73,7 +73,7 @@ export default class FieldValidityView {
             rule => !validity[rule],
         );
 
-        const errorMessage = fieldRuleSchemas[firstViolatedRule]?.errorMessage;
+        const errorMessage = ruleSchemas[firstViolatedRule]?.errorMessage;
         this.#fieldElement.setCustomValidity(errorMessage ?? '');
     }
 }

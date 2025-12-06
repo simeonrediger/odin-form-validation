@@ -1,23 +1,23 @@
-import formFields from './form-fields.js';
-import formFieldSchemas from './form-field-schemas.js';
-import formView from './form-view.js';
+import fields from './fields.js';
+import fieldSchemas from './field-schemas.js';
+import view from './form-view.js';
 import validate from './validate.js';
 
 const fieldContexts = {};
 
 function init() {
-    formView.init();
+    view.init();
     initFieldContexts();
     validateFields();
     bindEvents();
 }
 
 function validateFields() {
-    Object.values(formFields).forEach(validateField);
+    Object.values(fields).forEach(validateField);
 }
 
 function bindEvents() {
-    formView.container.addEventListener('input', handleInput);
+    view.container.addEventListener('input', handleInput);
 }
 
 function handleInput(event) {
@@ -27,43 +27,41 @@ function handleInput(event) {
         return;
     }
 
-    const field = formView.identifyFieldElement(fieldElement);
+    const field = view.identifyFieldElement(fieldElement);
 
-    if (field === formFields.COUNTRY) {
-        formView.renderPostalCodeLabel();
+    if (field === fields.COUNTRY) {
+        view.renderPostalCodeLabel();
     }
 
     validateField(field);
 }
 
 function validateField(field) {
-    const value = formView.getFieldValue(field);
-    const { rules } = formFieldSchemas[field];
+    const value = view.getFieldValue(field);
+    const { rules } = fieldSchemas[field];
     const context = fieldContexts[field];
     const validity = validate(value, rules, context);
-    formView.renderValidity(field, validity);
+    view.renderValidity(field, validity);
     validateDependentFields(field);
 }
 
 function validateDependentFields(field) {
-    const dependentFields = Object.keys(formFieldSchemas).filter(fieldKey =>
-        formFieldSchemas[fieldKey].dependsOn.includes(field),
+    const dependentFields = Object.keys(fieldSchemas).filter(fieldKey =>
+        fieldSchemas[fieldKey].dependsOn.includes(field),
     );
 
     dependentFields.forEach(validateField);
 }
 
 function initFieldContexts() {
-    const fields = Object.values(formFields);
-
-    for (const field of fields) {
+    for (const field of Object.values(fields)) {
         const context = {};
-        const dependees = formFieldSchemas[field].dependsOn;
+        const dependees = fieldSchemas[field].dependsOn;
 
         for (const dependee of dependees) {
             Object.defineProperty(context, dependee, {
                 get() {
-                    return formView.getFieldValue(dependee);
+                    return view.getFieldValue(dependee);
                 },
             });
         }
