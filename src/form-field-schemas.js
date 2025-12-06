@@ -4,7 +4,7 @@ import rules from './field-rules.js';
 const formFieldSchemas = {
     [fields.EMAIL]: {
         id: 'email',
-        rules: [rules.REQUIRED, rules.EMAIL],
+        rules: [rules.REQUIRED, rules.VALID_EMAIL],
         dependents: [],
     },
     [fields.COUNTRY]: {
@@ -14,7 +14,7 @@ const formFieldSchemas = {
     },
     [fields.POSTAL_CODE]: {
         id: 'postal-code',
-        rules: [rules.REQUIRED, rules.POSTAL_CODE],
+        rules: [rules.REQUIRED, rules.VALID_POSTAL_CODE],
         dependents: [],
     },
     [fields.PASSWORD]: {
@@ -24,7 +24,7 @@ const formFieldSchemas = {
     },
     [fields.PASSWORD_CONFIRMATION]: {
         id: 'password-confirmation',
-        rules: [rules.REQUIRED, rules.PASSWORD_CONFIRMATION],
+        rules: [rules.REQUIRED, rules.PASSWORD_CONFIRMATION_MATCHES_PASSWORD],
         dependents: [],
     },
 };
