@@ -1,7 +1,7 @@
-import fields from './form-fields.js';
-import rules from './field-rules.js';
+import fields from './fields.js';
+import rules from './rules.js';
 
-const fieldRuleSchemas = {
+const ruleSchemas = {
     [rules.REQUIRED]: {
         description: 'Required',
         errorMessage: 'This field cannot be empty',
@@ -65,4 +65,4 @@ function passwordConfirmationMatchesPassword(value, context) {
     return value === password;
 }
 
-export default fieldRuleSchemas;
+export default ruleSchemas;

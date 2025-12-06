@@ -1,5 +1,5 @@
-import fields from './form-fields.js';
-import fieldSchemas from './form-field-schemas.js';
+import fields from './fields.js';
+import fieldSchemas from './field-schemas.js';
 import FieldValidityView from './field-validity-view.js';
 
 let container;

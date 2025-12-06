@@ -1,7 +1,7 @@
-import fields from './form-fields.js';
-import rules from './field-rules.js';
+import fields from './fields.js';
+import rules from './rules.js';
 
-const formFieldSchemas = {
+const fieldSchemas = {
     [fields.EMAIL]: {
         id: 'email',
         rules: [rules.REQUIRED, rules.VALID_EMAIL],
@@ -29,4 +29,4 @@ const formFieldSchemas = {
     },
 };
 
-export default formFieldSchemas;
+export default fieldSchemas;

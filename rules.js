@@ -1,4 +1,4 @@
-const fieldRules = Object.freeze({
+const rules = Object.freeze({
     REQUIRED: 'REQUIRED',
     VALID_EMAIL: 'VALID_EMAIL',
     VALID_POSTAL_CODE: 'VALID_POSTAL_CODE',
@@ -6,4 +6,4 @@ const fieldRules = Object.freeze({
         'PASSWORD_CONFIRMATION_MATCHES_PASSWORD',
 });
 
-export default fieldRules;
+export default rules;
