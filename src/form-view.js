@@ -26,7 +26,11 @@ function cacheElements() {
 
 function initFieldValidityViews() {
     for (const [field, fieldElement] of Object.entries(fieldElements)) {
-        fieldValidityViews[field] = new FieldValidityView(fieldElement, field);
+        fieldValidityViews[field] = new FieldValidityView(
+            fieldElement,
+            field,
+            container,
+        );
     }
 }
 
