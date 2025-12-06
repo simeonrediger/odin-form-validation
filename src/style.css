@@ -63,6 +63,10 @@ form button:focus {
   outline: 1px solid #fff;
 }
 
+form button.success {
+  background-color: #080;
+}
+
 .rules {
   background-color: #222;
   border: 1px solid #333;

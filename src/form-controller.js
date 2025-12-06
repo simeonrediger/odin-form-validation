@@ -39,6 +39,7 @@ function handleInput(event) {
 
 function handleSubmit(event) {
     event.preventDefault();
+    view.renderSuccessMessage();
 }
 
 function validateField(field) {
