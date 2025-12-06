@@ -6,7 +6,7 @@ const fieldRuleSchemas = {
     [rules.REQUIRED]: {
         description: 'Required',
         errorMessage: 'This field cannot be empty',
-        validate: isValidRequiredValue,
+        validate: isNotEmpty,
     },
     [rules.EMAIL]: {
         description: 'Valid email address',
@@ -25,7 +25,7 @@ const fieldRuleSchemas = {
     },
 };
 
-function isValidRequiredValue(value) {
+function isNotEmpty(value) {
     return value !== '';
 }
 
