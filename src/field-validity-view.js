@@ -1,3 +1,5 @@
+import fieldRuleSchemas from './field-rule-schemas.js';
+
 export default class FieldValidityView {
     #element;
     #rulesElement;
@@ -23,5 +25,20 @@ export default class FieldValidityView {
         this.#rulesElement.style.top = fieldRect.top - formRect.top + 'px';
         this.#rulesElement.style.left =
             fieldRect.right - formRect.left + 8 + 'px';
+    }
+
+    render(validity) {
+        this.#rulesElement.innerHTML = '';
+
+        for (const [rule, isValid] of Object.entries(validity)) {
+            const ruleDescription = fieldRuleSchemas[rule].description;
+            const ruleStatus = isValid ? '✅' : '❌';
+
+            const ruleMessage = document.createElement('p');
+            ruleMessage.classList.add('rule');
+            ruleMessage.textContent = `${ruleStatus} ${ruleDescription}`;
+
+            this.#rulesElement.append(ruleMessage);
+        }
     }
 }
