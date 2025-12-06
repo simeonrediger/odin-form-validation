@@ -1,4 +1,4 @@
-import form from './form-model.js';
+import formView from './form-view.js';
 
 function init() {}
 
