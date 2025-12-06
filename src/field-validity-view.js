@@ -1,22 +1,22 @@
 import fieldRuleSchemas from './field-rule-schemas.js';
 
 export default class FieldValidityView {
-    #element;
+    #fieldElement;
     #rulesElement;
 
     constructor(element) {
-        this.#element = element;
+        this.#fieldElement = element;
         this.#cacheElements();
         this.#positionRulesElement();
     }
 
     #cacheElements() {
-        this.#rulesElement = this.#element.nextElementSibling;
+        this.#rulesElement = this.#fieldElement.nextElementSibling;
 
         if (!this.#rulesElement.matches("[data-role='requirements']")) {
             throw new Error(
                 'Requirements element must follow field element:',
-                this.#element,
+                this.#fieldElement,
             );
         }
     }
@@ -24,7 +24,7 @@ export default class FieldValidityView {
     #positionRulesElement() {
         const formElement = document.querySelector('[data-form]');
         const formRect = formElement.getBoundingClientRect();
-        const fieldRect = this.#element.getBoundingClientRect();
+        const fieldRect = this.#fieldElement.getBoundingClientRect();
         this.#rulesElement.style.top = fieldRect.top - formRect.top + 'px';
         this.#rulesElement.style.left =
             fieldRect.right - formRect.left + 8 + 'px';
