@@ -5,11 +5,11 @@ export default class FieldValidityView {
     #fieldElement;
     #rulesElement;
 
-    constructor(fieldElement, field) {
+    constructor(fieldElement, field, referenceElement) {
         this.#fieldElement = fieldElement;
         this.#cacheElements();
         this.#initRulesElement(field);
-        this.#positionRulesElement();
+        this.#positionRulesElement(referenceElement);
     }
 
     #cacheElements() {
@@ -44,13 +44,12 @@ export default class FieldValidityView {
         }
     }
 
-    #positionRulesElement() {
-        const formElement = document.querySelector('[data-form]');
-        const formRect = formElement.getBoundingClientRect();
+    #positionRulesElement(referenceElement) {
+        const referenceRect = referenceElement.getBoundingClientRect();
         const fieldRect = this.#fieldElement.getBoundingClientRect();
-        this.#rulesElement.style.top = fieldRect.top - formRect.top + 'px';
+        this.#rulesElement.style.top = fieldRect.top - referenceRect.top + 'px';
         this.#rulesElement.style.left =
-            fieldRect.right - formRect.left + 8 + 'px';
+            fieldRect.right - referenceRect.left + 8 + 'px';
     }
 
     render(validity) {
