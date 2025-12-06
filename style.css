@@ -42,6 +42,10 @@ form button {
   color: #666;
 }
 
+.field:user-invalid {
+  border-color: #f44;
+}
+
 form button {
   background-color: #33c;
   grid-column: 1 / 3;
