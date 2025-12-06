@@ -6,6 +6,11 @@ export default class FieldValidityView {
 
     constructor(element) {
         this.#element = element;
+        this.#cacheElements();
+        this.#positionRulesElement();
+    }
+
+    #cacheElements() {
         this.#rulesElement = this.#element.nextElementSibling;
 
         if (!this.#rulesElement.matches("[data-role='requirements']")) {
@@ -14,8 +19,6 @@ export default class FieldValidityView {
                 this.#element,
             );
         }
-
-        this.#positionRulesElement();
     }
 
     #positionRulesElement() {
