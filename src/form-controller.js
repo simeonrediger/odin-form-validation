@@ -1,3 +1,7 @@
 init();
 
-function init() {}
+function init() {
+    validateFields();
+}
+
+function validateFields() {}
