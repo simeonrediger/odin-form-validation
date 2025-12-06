@@ -21,7 +21,7 @@ const fieldRuleSchemas = {
     [rules.PASSWORD_CONFIRMATION]: {
         description: 'Passwords match',
         errorMessage: 'Passwords do not match',
-        validate: isValidPasswordConfirmation,
+        validate: passwordsMatch,
     },
 };
 
@@ -61,7 +61,7 @@ function isValidPostalCode(value) {
     return countryPostalCodePattern.test(value);
 }
 
-function isValidPasswordConfirmation(value) {
+function passwordsMatch(value) {
     const password = form.getFieldValue(fields.PASSWORD);
     return value === password;
 }
