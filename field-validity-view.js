@@ -4,8 +4,8 @@ export default class FieldValidityView {
     #fieldElement;
     #rulesElement;
 
-    constructor(element) {
-        this.#fieldElement = element;
+    constructor(fieldElement) {
+        this.#fieldElement = fieldElement;
         this.#cacheElements();
         this.#positionRulesElement();
     }
