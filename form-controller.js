@@ -6,6 +6,7 @@ import validate from './validate.js';
 const fieldContexts = {};
 
 function init() {
+    formView.init();
     initFieldContexts();
     validateFields();
 }
