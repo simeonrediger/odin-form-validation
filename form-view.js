@@ -56,12 +56,24 @@ function renderValidity(field, validity) {
     fieldValidityViews[field].render(validity);
 }
 
+function renderSuccessMessage() {
+    submitButton.classList.add('success');
+    submitButton.textContent = 'Success!';
+    setTimeout(revertSuccessMessage, 3000);
+}
+
+function revertSuccessMessage() {
+    submitButton.classList.remove('success');
+    submitButton.textContent = 'Submit';
+}
+
 const formView = {
     init,
     identifyFieldElement,
     getFieldValue,
     renderPostalCodeLabel,
     renderValidity,
+    renderSuccessMessage,
 
     get container() {
         return container;
