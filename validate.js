@@ -1,6 +1,6 @@
 import fieldRuleSchemas from './field-rule-schemas.js';
 
-function validate(value, rules) {
+export default function validate(value, rules) {
     const validity = {};
 
     for (const rule of rules) {
@@ -11,9 +11,3 @@ function validate(value, rules) {
 
     return validity;
 }
-
-const validity = {
-    validate,
-};
-
-export default validity;
