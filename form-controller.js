@@ -20,7 +20,16 @@ function bindEvents() {
     formView.container.addEventListener('input', handleInput);
 }
 
-function handleInput(event) {}
+function handleInput(event) {
+    const fieldElement = event.target.closest('[data-field]');
+
+    if (!fieldElement) {
+        return;
+    }
+
+    const field = formView.identifyFieldElement(fieldElement);
+    validateField(field);
+}
 
 function validateField(field) {
     const value = formView.getFieldValue(field);

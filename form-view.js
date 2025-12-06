@@ -29,6 +29,14 @@ function initFieldValidityViews() {
     }
 }
 
+function identifyFieldElement(fieldElement) {
+    const field = Object.keys(fieldElements).find(
+        field => fieldElements[field] === fieldElement,
+    );
+
+    return field;
+}
+
 function getFieldValue(field) {
     return fieldElements[field].value;
 }
@@ -39,6 +47,7 @@ function renderValidity(field, validity) {
 
 const formView = {
     init,
+    identifyFieldElement,
     getFieldValue,
     renderValidity,
 
