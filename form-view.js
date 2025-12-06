@@ -33,7 +33,9 @@ function getFieldValue(field) {
     return fieldElements[field].value;
 }
 
-function renderValidity(field, validity) {}
+function renderValidity(field, validity) {
+    fieldValidityViews[field].render(validity);
+}
 
 const formView = {
     init,
