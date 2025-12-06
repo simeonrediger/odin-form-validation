@@ -21,6 +21,8 @@ function getFieldValue(field) {
     return fieldElements[field].value;
 }
 
-const formView = {};
+const formView = {
+    getFieldValue,
+};
 
 export default formView;
