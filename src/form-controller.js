@@ -28,6 +28,11 @@ function handleInput(event) {
     }
 
     const field = formView.identifyFieldElement(fieldElement);
+
+    if (field === formFields.COUNTRY) {
+        formView.renderPostalCodeLabel();
+    }
+
     validateField(field);
 }
 
