@@ -66,7 +66,7 @@ export default class FieldValidityView {
             `[data-rule='${rule}'] [data-rule-status]`,
         );
 
-        ruleStatus.textContent = isValid ? '✅' : '❌';
+        ruleStatus.textContent = isValid ? '✔️' : '❌';
         ruleStatus.ariaLabel = isValid ? 'Valid' : 'Invalid';
     }
 
