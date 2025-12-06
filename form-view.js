@@ -1,12 +1,15 @@
 import fields from './form-fields.js';
 import fieldSchemas from './form-field-schemas.js';
+import FieldValidityView from './field-validity-view.js';
 
 let formElement;
 let submitButton;
 const fieldElements = {};
+const fieldValidityViews = {};
 
 function init() {
     cacheElements();
+    initFieldValidityViews();
 }
 
 function cacheElements() {
@@ -17,6 +20,12 @@ function cacheElements() {
         const fieldId = fieldSchemas[field].id;
         const fieldElement = formElement.querySelector(`#${fieldId}`);
         fieldElements[field] = fieldElement;
+    }
+}
+
+function initFieldValidityViews() {
+    for (const [field, fieldElement] of Object.entries(fieldElements)) {
+        fieldValidityViews[field] = new FieldValidityView(fieldElement);
     }
 }
 
