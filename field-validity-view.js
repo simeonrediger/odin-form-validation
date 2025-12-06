@@ -56,11 +56,7 @@ export default class FieldValidityView {
         let firstInvalidRule;
 
         for (const [rule, isValid] of Object.entries(validity)) {
-            const ruleStatus = this.#rulesElement.querySelector(
-                `[data-rule='${rule}'] [data-rule-status]`,
-            );
-
-            ruleStatus.textContent = isValid ? '✅' : '❌';
+            this.#renderRuleStatus(rule, isValid);
 
             if (!firstInvalidRule && !isValid) {
                 firstInvalidRule = rule;
@@ -73,5 +69,13 @@ export default class FieldValidityView {
         } else {
             this.#fieldElement.setCustomValidity('');
         }
+    }
+
+    #renderRuleStatus(rule, isValid) {
+        const ruleStatus = this.#rulesElement.querySelector(
+            `[data-rule='${rule}'] [data-rule-status]`,
+        );
+
+        ruleStatus.textContent = isValid ? '✅' : '❌';
     }
 }
