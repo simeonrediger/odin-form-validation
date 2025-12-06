@@ -36,6 +36,7 @@ export default class FieldValidityView {
 
             const ruleMessage = document.createElement('p');
             ruleMessage.dataset.rule = rule;
+            ruleMessage.ariaLive = 'polite';
             ruleMessage.classList.add('rule');
             ruleMessage.append(ruleStatus, ruleDescription);
 
@@ -66,6 +67,7 @@ export default class FieldValidityView {
         );
 
         ruleStatus.textContent = isValid ? '✅' : '❌';
+        ruleStatus.ariaLabel = isValid ? 'Valid' : 'Invalid';
     }
 
     #setFieldValidity(validity) {
