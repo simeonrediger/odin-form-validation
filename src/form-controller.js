@@ -39,8 +39,11 @@ function handleInput(event) {
 
 function handleSubmit(event) {
     event.preventDefault();
-    view.container.reportValidity();
-    view.renderSuccessMessage();
+    const formIsValid = view.container.reportValidity();
+
+    if (formIsValid) {
+        view.renderSuccessMessage();
+    }
 }
 
 function validateField(field) {
