@@ -1,7 +1,9 @@
-init();
-
 function init() {
     validateFields();
 }
 
-function validateFields() {}
+const formController = {
+    init,
+};
+
+export default formController;
