@@ -63,12 +63,7 @@ export default class FieldValidityView {
             }
         }
 
-        if (firstInvalidRule) {
-            const { errorMessage } = fieldRuleSchemas[firstInvalidRule];
-            this.#fieldElement.setCustomValidity(errorMessage);
-        } else {
-            this.#fieldElement.setCustomValidity('');
-        }
+        this.#setFieldValidity(firstInvalidRule);
     }
 
     #renderRuleStatus(rule, isValid) {
@@ -77,5 +72,14 @@ export default class FieldValidityView {
         );
 
         ruleStatus.textContent = isValid ? '✅' : '❌';
+    }
+
+    #setFieldValidity(invalidRule) {
+        if (invalidRule) {
+            const { errorMessage } = fieldRuleSchemas[invalidRule];
+            this.#fieldElement.setCustomValidity(errorMessage);
+        } else {
+            this.#fieldElement.setCustomValidity('');
+        }
     }
 }
