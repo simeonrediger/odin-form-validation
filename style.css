@@ -21,6 +21,12 @@ form label {
   justify-self: end;
 }
 
+form label:has(+ .field:required)::after {
+  color: #f88;
+  content: '*';
+  margin-inline-start: 0.1875rem;
+}
+
 .field,
 form button {
   border: 1px solid #444;
