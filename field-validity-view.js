@@ -69,11 +69,11 @@ export default class FieldValidityView {
     }
 
     #setFieldValidity(validity) {
-        const firstInvalidRule = Object.keys(validity).find(
+        const firstViolatedRule = Object.keys(validity).find(
             rule => !validity[rule],
         );
 
-        const errorMessage = fieldRuleSchemas[firstInvalidRule]?.errorMessage;
+        const errorMessage = fieldRuleSchemas[firstViolatedRule]?.errorMessage;
         this.#fieldElement.setCustomValidity(errorMessage ?? '');
     }
 }
